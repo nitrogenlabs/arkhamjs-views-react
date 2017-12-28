@@ -1,10 +1,11 @@
 {
   "name": "arkhamjs-views-react",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "React view components for ArkhamJS",
   "license": "MIT",
   "main": "index.js",
   "types": "./lib/index.d.ts",
+  "typings": "lib/index",
   "keywords": [
     "arkhamjs",
     "flux",
@@ -29,7 +30,6 @@
     "pretest": "npm run lint",
     "test": "jest"
   },
-  "typings": "lib/index",
   "dependencies": {
     "history": "^4.7.2",
     "lodash": "^4.17.4",

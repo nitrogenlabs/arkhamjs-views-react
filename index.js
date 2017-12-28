@@ -2,11 +2,12 @@
  * Copyright (c) 2018, Nitrogen Labs, Inc.
  * Copyrights licensed under the MIT License. See the accompanying LICENSE file for terms.
  */
+'use strict';
 
 var lib = require('./lib');
 
 // Actions
-exports.ArkhamActions = lib.ArkhamRouteActions;
+exports.ArkhamRouteActions = lib.ArkhamRouteActions;
 
 // Constants
 exports.ArkhamRouteConstants = lib.ArkhamRouteConstants;
