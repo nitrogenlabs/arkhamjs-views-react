@@ -1,0 +1,92 @@
+{
+  "name": "arkhamjs-views-react",
+  "version": "1.0.0",
+  "description": "React view components for ArkhamJS",
+  "license": "MIT",
+  "main": "index.js",
+  "types": "./lib/index.d.ts",
+  "keywords": [
+    "arkhamjs",
+    "flux",
+    "nitrogenlabs",
+    "react",
+    "view"
+  ],
+  "author": "Giraldo Rosales <giraldo@nitrogenlabs.com> (http://nitrogenlabs.com/)",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/nitrogenlabs/arkhamjs-views-react.git"
+  },
+  "homepage": "http://www.arkhamjs.com",
+  "bugs": {
+    "url": "https://github.com/nitrogenlabs/arkhamjs-views-react/issues"
+  },
+  "scripts": {
+    "compile": "tsc",
+    "docs": "typedoc --target ES5 --module commonjs --out docs/ src/ --exclude src/index.ts --excludeExternals --hideGenerator",
+    "lint": "tslint -c tslint.json 'src/**/*.{ts,tsx}'",
+    "prepublishOnly": "NODE_ENV=production npm test && npm run compile",
+    "pretest": "npm run lint",
+    "test": "jest"
+  },
+  "typings": "lib/index",
+  "dependencies": {
+    "history": "^4.7.2",
+    "lodash": "^4.17.4",
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0",
+    "react-addons-css-transition-group": "^15.6.2",
+    "react-dom": "^16.2.0",
+    "react-router-dom": "^4.2.2"
+  },
+  "devDependencies": {
+    "@types/history": "^4.6.2",
+    "@types/jest": "^21.1.9",
+    "@types/node": "^8.5.2",
+    "@types/prop-types": "^15.5.2",
+    "@types/react": "^16.0.31",
+    "@types/react-dom": "^16.0.3",
+    "@types/react-router-dom": "^4.2.3",
+    "arkhamjs": "^3.0.0",
+    "jest": "^22.0.4",
+    "react-addons-test-utils": "^15.6.2",
+    "react-test-renderer": "^16.2.0",
+    "regenerator-runtime": "^0.11.1",
+    "ts-jest": "^22.0.0",
+    "tslint": "^5.8.0",
+    "tslint-eslint-rules": "^4.1.1",
+    "tslint-react": "^3.2.0",
+    "typedoc": "^0.9.0",
+    "typescript": "^2.6.2"
+  },
+  "peerDependencies": {
+    "arkhamjs": ">=3",
+    "react": ">=16",
+    "react-dom": ">=16"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "setupFiles": [
+      "<rootDir>/jest.setup.js"
+    ],
+    "testURL": "http://localhost",
+    "transform": {
+      "^.+\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testMatch": [
+      "<rootDir>/src/**/*test.ts?(x)"
+    ],
+    "testPathIgnorePatterns": [
+      "<rootDir>/node_modules/",
+      "<rootDir>/dist/"
+    ],
+    "verbose": false
+  },
+  "directories": {
+    "doc": "docs"
+  }
+}
