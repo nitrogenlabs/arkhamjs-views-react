@@ -10,12 +10,15 @@
 ### Installation
 
 Using [npm](https://www.npmjs.com/):
+
 ```bash
-$ npm install --save arkhamjs-views-react
+$ npm install --save @nlabs/arkhamjs-views-react
 ```
+
 or
+
 ```bash
-$ yarn add arkhamjs-views-react
+$ yarn add @nlabs/arkhamjs-views-react
 ```
 
 #### Documentation
