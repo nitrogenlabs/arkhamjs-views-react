@@ -13,6 +13,8 @@ export interface ArkhamProps {
   readonly children?: JSX.Element;
   readonly className?: string;
   readonly config?: FluxOptions;
+  readonly forceRefresh?: boolean;
+  readonly middleware?: any[];
   readonly routes?: string[];
   readonly stores?: Store[];
 }
@@ -28,12 +30,16 @@ export class Arkham extends React.Component<ArkhamProps, {}> {
     children: PropTypes.node,
     className: PropTypes.string,
     config: PropTypes.object,
+    forceRefresh: PropTypes.bool,
+    middleware: PropTypes.array,
     routes: PropTypes.array,
     stores: PropTypes.array
   };
 
   static defaultProps: object = {
     config: {},
+    forceRefresh: 'pushState' in window.history,
+    middleware: [],
     routes: [],
     stores: []
   };
@@ -51,17 +57,19 @@ export class Arkham extends React.Component<ArkhamProps, {}> {
 
     // Initialize Flux with custom configuration
     const defaultConfig: FluxOptions = {
-      forceRefresh: 'pushState' in window.history,
       routerType: 'browser',
       scrollToTop: true,
       title: 'ArkhamJS'
     };
-    const {config, stores} = this.props;
+    const {config, middleware, stores} = this.props;
     this.config = {...defaultConfig, ...config};
     Flux.config(this.config);
 
     // Register stores
     Flux.registerStores(stores);
+
+    // Add middleware
+    Flux.addMiddleware(middleware);
   }
 
   componentWillMount(): void {
@@ -114,7 +122,6 @@ export class Arkham extends React.Component<ArkhamProps, {}> {
     const {
       basename,
       context,
-      forceRefresh,
       hashType,
       history,
       initialEntries,
@@ -126,7 +133,8 @@ export class Arkham extends React.Component<ArkhamProps, {}> {
 
     const {
       children,
-      className
+      className,
+      forceRefresh
     } = this.props;
 
     // View container

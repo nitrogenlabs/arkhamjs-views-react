@@ -28,9 +28,9 @@
   version "4.6.2"
   resolved "https://registry.yarnpkg.com/@types/history/-/history-4.6.2.tgz#12cfaba693ba20f114ed5765467ff25fdf67ddb0"
 
-"@types/jest@^21.1.9":
-  version "21.1.10"
-  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-21.1.10.tgz#dcacb5217ddf997a090cc822bba219b4b2fd7984"
+"@types/jest@^22.0.1":
+  version "22.0.1"
+  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-22.0.1.tgz#6370a6d60cce3845e4cd5d00bf65f654264685bc"
 
 "@types/lodash@4.14.74":
   version "4.14.74"
@@ -44,9 +44,13 @@
   version "2.0.29"
   resolved "https://registry.yarnpkg.com/@types/minimatch/-/minimatch-2.0.29.tgz#5002e14f75e2d71e564281df0431c8c1b4a2a36a"
 
-"@types/node@*", "@types/node@^8.5.2":
+"@types/node@*":
   version "8.5.2"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-8.5.2.tgz#83b8103fa9a2c2e83d78f701a9aa7c9539739aa5"
+
+"@types/node@^8.5.7":
+  version "8.5.7"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-8.5.7.tgz#9c498c35af354dcfbca3790fb2e81129e93cf0e2"
 
 "@types/prop-types@^15.5.2":
   version "15.5.2"
@@ -74,9 +78,13 @@
     "@types/history" "*"
     "@types/react" "*"
 
-"@types/react@*", "@types/react@^16.0.31":
+"@types/react@*":
   version "16.0.31"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-16.0.31.tgz#5285da62f3ac62b797f6d0729a1d6181f3180c3e"
+
+"@types/react@^16.0.34":
+  version "16.0.34"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.0.34.tgz#7a8f795afd8a404a9c4af9539b24c75d3996914e"
 
 "@types/shelljs@0.7.0":
   version "0.7.0"
@@ -182,9 +190,9 @@ argparse@^1.0.7:
   dependencies:
     sprintf-js "~1.0.2"
 
-arkhamjs@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/arkhamjs/-/arkhamjs-3.0.0.tgz#09a096fd4b8e12f1405b8cfbb585efb1f0176c6d"
+arkhamjs@^3.1.2:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/arkhamjs/-/arkhamjs-3.1.2.tgz#2d05de1d08aaa1c8b7bcae33c1a41976c7179733"
   dependencies:
     lodash "^4.17.4"
 
@@ -2889,9 +2897,9 @@ trim-right@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/trim-right/-/trim-right-1.0.1.tgz#cb2e1203067e0c8de1f614094b9fe45704ea6003"
 
-ts-jest@^22.0.0:
-  version "22.0.0"
-  resolved "https://registry.yarnpkg.com/ts-jest/-/ts-jest-22.0.0.tgz#cce1a5f1106150ca002d09f7e85913355ceb5e8d"
+ts-jest@^22.0.1:
+  version "22.0.1"
+  resolved "https://registry.yarnpkg.com/ts-jest/-/ts-jest-22.0.1.tgz#48942936a466c2e76e259b02e2f1356f1839afc3"
   dependencies:
     babel-core "^6.24.1"
     babel-plugin-istanbul "^4.1.4"
@@ -2916,7 +2924,7 @@ tslint-eslint-rules@^4.1.1:
     tslib "^1.0.0"
     tsutils "^1.4.0"
 
-tslint-react@^3.2.0:
+tslint-react@^3.3.3:
   version "3.3.3"
   resolved "https://registry.yarnpkg.com/tslint-react/-/tslint-react-3.3.3.tgz#06a6beb826645ab21d85339663a1295e107bc405"
   dependencies:
