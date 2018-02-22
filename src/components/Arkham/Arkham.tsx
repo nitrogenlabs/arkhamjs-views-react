@@ -19,11 +19,15 @@ export interface ArkhamProps {
   readonly stores?: Store[];
 }
 
+export interface ArkhamState {
+  readonly isInit: boolean;
+}
+
 /**
  * Arkham
  * @type {Component}
  */
-export class Arkham extends React.Component<ArkhamProps, {}> {
+export class Arkham extends React.Component<ArkhamProps, ArkhamState> {
   private config: FluxOptions;
 
   static propTypes: object = {
@@ -31,17 +35,13 @@ export class Arkham extends React.Component<ArkhamProps, {}> {
     className: PropTypes.string,
     config: PropTypes.object,
     forceRefresh: PropTypes.bool,
-    middleware: PropTypes.array,
-    routes: PropTypes.array,
-    stores: PropTypes.array
+    routes: PropTypes.array
   };
 
   static defaultProps: object = {
     config: {},
     forceRefresh: 'pushState' in window.history,
-    middleware: [],
-    routes: [],
-    stores: []
+    routes: []
   };
 
   static childContextTypes: object = {
@@ -52,6 +52,7 @@ export class Arkham extends React.Component<ArkhamProps, {}> {
     super(props);
 
     // Methods
+    this.onInit = this.onInit.bind(this);
     this.onUpdateTitle = this.onUpdateTitle.bind(this);
     this.onUpdateView = this.onUpdateView.bind(this);
 
@@ -61,31 +62,36 @@ export class Arkham extends React.Component<ArkhamProps, {}> {
       scrollToTop: true,
       title: 'ArkhamJS'
     };
-    const {config, middleware, stores} = this.props;
+    const {config} = this.props;
     this.config = {...defaultConfig, ...config};
-    Flux.config(this.config);
 
-    // Register stores
-    Flux.registerStores(stores);
-
-    // Add middleware
-    Flux.addMiddleware(middleware);
+    // Initial state
+    this.state = {isInit: false};
   }
 
-  componentWillMount(): void {
+  componentDidMount(): void {
     // Add listeners
+    Flux.onInit(this.onInit);
     Flux.on(ArkhamRouteConstants.UPDATE_TITLE, this.onUpdateTitle);
+
+    // Initialize ArkhamJS
+    Flux.init(this.config);
   }
 
   componentWillUnmount(): void {
-    // Add listeners
-    Flux.on(ArkhamRouteConstants.UPDATE_TITLE, this.onUpdateTitle);
+    // Remove listeners
+    Flux.offInit(this.onInit);
+    Flux.off(ArkhamRouteConstants.UPDATE_TITLE, this.onUpdateTitle);
   }
 
   getChildContext(): object {
     return {
       config: this.config
     };
+  }
+
+  onInit(): void {
+    this.setState({isInit: true});
   }
 
   onUpdateView(): void {
@@ -119,6 +125,12 @@ export class Arkham extends React.Component<ArkhamProps, {}> {
   }
 
   render(): JSX.Element {
+    const {isInit} = this.state;
+
+    if(!isInit) {
+      return null;
+    }
+
     const {
       basename,
       context,
